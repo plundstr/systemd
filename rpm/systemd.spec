@@ -155,6 +155,10 @@ glib-based applications using libudev functionality.
 %patch3 -p1
 %patch4 -p1
 
+# https://bugzilla.redhat.com/show_bug.cgi?id=1071278
+# Disable link warnings, somehow they cause the link to fail.
+sed -r -i 's/\blibsystemd-(login|journal|id128|daemon).c \\/\\/' Makefile.am
+
 %build
 ./autogen.sh
 %configure \
