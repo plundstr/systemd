@@ -2,7 +2,7 @@ diff --git a/Makefile.am b/Makefile.am
 index 8d9c587..5622ffa 100644
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -96,6 +96,7 @@ udevrulesdir=$(udevlibexecdir)/rules.d
+@@ -101,6 +101,7 @@ udevrulesdir=$(udevlibexecdir)/rules.d
  udevhwdbdir=$(udevlibexecdir)/hwdb.d
  catalogdir=$(prefix)/lib/systemd/catalog
  kernelinstalldir = $(prefix)/lib/kernel/install.d
@@ -10,7 +10,7 @@ index 8d9c587..5622ffa 100644
  
  # And these are the special ones for /
  rootprefix=@rootprefix@
-@@ -132,11 +133,12 @@ check_PROGRAMS =
+@@ -136,11 +137,12 @@ check_PROGRAMS =
  check_DATA =
  tests=
  manual_tests =
