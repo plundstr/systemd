@@ -329,6 +329,7 @@ journalctl --update-catalog >/dev/null 2>&1 || :
 /bin/machinectl
 /bin/systemd-tmpfiles
 %{_bindir}/systemd-run
+%{_bindir}/busctl
 /bin/udevadm
 %{_bindir}/kernel-install
 %{_bindir}/systemd-nspawn
@@ -357,16 +358,7 @@ journalctl --update-catalog >/dev/null 2>&1 || :
 %{_datadir}/polkit-1/actions/org.freedesktop.login1.policy
 %{_datadir}/polkit-1/actions/org.freedesktop.locale1.policy
 %{_datadir}/polkit-1/actions/org.freedesktop.timedate1.policy
-%{_datadir}/bash-completion/completions/hostnamectl
-%{_datadir}/bash-completion/completions/journalctl
-%{_datadir}/bash-completion/completions/localectl
-%{_datadir}/bash-completion/completions/loginctl
-%{_datadir}/bash-completion/completions/systemctl
-%{_datadir}/bash-completion/completions/timedatectl
-%{_datadir}/bash-completion/completions/udevadm
-%{_datadir}/bash-completion/completions/systemd-analyze
-%{_datadir}/bash-completion/completions/kernel-install
-%{_datadir}/bash-completion/completions/systemd-run
+%{_datadir}/bash-completion/completions/*
 %{_datadir}/zsh/site-functions/*
 
 /usr/lib/systemd/catalog/systemd.catalog
@@ -387,6 +379,8 @@ journalctl --update-catalog >/dev/null 2>&1 || :
 %exclude %{_libdir}/systemd/user/default.target
 %exclude %{_sysconfdir}/systemd/system/multi-user.target.wants/remote-fs.target
 %exclude /lib/systemd/system/user@.service
+%exclude /usr/lib/systemd/catalog/systemd.*.catalog
+%exclude /usr/share/locale/*/LC_MESSAGES/systemd.mo
 
 %files config-mer
 %defattr(-,root,root,-)
@@ -415,6 +409,7 @@ journalctl --update-catalog >/dev/null 2>&1 || :
 %files libs
 /lib/security/pam_systemd.so
 %{_libdir}/libnss_myhostname.so.2
+%{_libdir}/libsystemd.so.*
 %{_libdir}/libsystemd-daemon.so.*
 %{_libdir}/libsystemd-login.so.*
 %{_libdir}/libsystemd-journal.so.*
@@ -441,6 +436,7 @@ journalctl --update-catalog >/dev/null 2>&1 || :
 %{_libdir}/pkgconfig/libsystemd-journal.pc
 %{_libdir}/pkgconfig/libsystemd-id128.pc
 %{_libdir}/pkgconfig/libudev.pc
+%{_libdir}/pkgconfig/libsystemd.pc
 %{_libdir}/pkgconfig/systemd.pc
 %{_libdir}/pkgconfig/udev.pc
 
