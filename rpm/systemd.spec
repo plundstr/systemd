@@ -155,10 +155,6 @@ glib-based applications using libudev functionality.
 %patch3 -p1
 %patch4 -p1
 
-# https://bugzilla.redhat.com/show_bug.cgi?id=1071278
-# Disable link warnings, somehow they cause the link to fail.
-sed -r -i 's/\blibsystemd-(login|journal|id128|daemon).c \\/\\/' Makefile.am
-
 %build
 ./autogen.sh
 %configure \
@@ -168,6 +164,7 @@ sed -r -i 's/\blibsystemd-(login|journal|id128|daemon).c \\/\\/' Makefile.am
   --with-firmware-path=/lib/firmware/updates:/lib/firmware:/system/etc/firmware:/etc/firmware:/vendor/firmware:/firmware/image \
   --disable-manpages \
   --disable-python-devel \
+  --enable-compat-libs \
   --enable-tests
 
 make %{?_smp_mflags}
