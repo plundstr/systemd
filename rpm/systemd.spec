@@ -1,6 +1,6 @@
 Name:           systemd
 URL:            http://www.freedesktop.org/wiki/Software/systemd
-Version:        208
+Version:        210
 Release:        1
 License:        LGPLv2+ and MIT and GPLv2+
 Group:          System/System Control
@@ -30,11 +30,11 @@ Requires:       util-linux >= 2.21.2
 Source0:        http://www.freedesktop.org/software/systemd/%{name}-%{version}.tar.xz
 Source2:        tests.xml
 Source3:        systemctl-user
-#Patch0:         systemd-208-video.patch
-#Patch1:         systemd-208-pkgconfigdir.patch
-#Patch2:         systemd-187-remove-display-manager.service.patch
-#Patch3:         systemd-187-make-readahead-depend-on-sysinit.patch
-#Patch4:         systemd-208-install-test-binaries.patch
+Patch0:         systemd-210-video.patch
+Patch1:         systemd-210-pkgconfigdir.patch
+Patch2:         systemd-187-remove-display-manager.service.patch
+Patch3:         systemd-187-make-readahead-depend-on-sysinit.patch
+Patch4:         systemd-210-install-test-binaries.patch
 Provides:       udev = %{version}
 Obsoletes:      udev < 184 
 Provides:       systemd-sysv = %{version}
@@ -149,11 +149,11 @@ glib-based applications using libudev functionality.
 
 %prep
 %setup -q -n %{name}-%{version}/systemd
-#%patch0 -p1
-#%patch1 -p1
-#%patch2 -p1
-#%patch3 -p1
-#%patch4 -p1
+%patch0 -p1
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 ./autogen.sh
