@@ -1,0 +1,16 @@
+# Do not check for -flto because i486 will support it,
+# but enabling it will fail in our obs i486 build
+
+--- a/configure.ac	2014-03-05 18:00:51.019832157 +0000
++++ b/configure.ac	2014-03-05 18:00:55.299831992 +0000
+@@ -157,10 +157,6 @@
+         -fdata-sections \
+         -fstack-protector \
+         --param=ssp-buffer-size=4])
+-AS_CASE([$CFLAGS], [*-O[[12345\ ]]*],
+-        [CC_CHECK_FLAGS_APPEND([with_cflags], [CFLAGS], [\
+-               -flto])],
+-        [AC_MSG_RESULT([skipping -flto, optimization not enabled])])
+ AC_SUBST([OUR_CFLAGS], "$with_cflags $address_sanitizer_cflags")
+ 
+ AS_CASE([$CFLAGS], [*-O[[12345\ ]]*],
