@@ -423,6 +423,7 @@ journalctl --update-catalog >/dev/null 2>&1 || :
 
 %files devel
 %dir %{_includedir}/systemd
+%{_libdir}/libsystemd.so
 %{_libdir}/libsystemd-daemon.so
 %{_libdir}/libsystemd-login.so
 %{_libdir}/libsystemd-journal.so
@@ -433,7 +434,7 @@ journalctl --update-catalog >/dev/null 2>&1 || :
 %{_includedir}/systemd/sd-journal.h
 %{_includedir}/systemd/sd-id128.h
 %{_includedir}/systemd/sd-messages.h
-%{_includedir}/systemd/sd-shutdown.h
+%{_includedir}/systemd/_sd-common.h
 %{_includedir}/libudev.h
 %{_libdir}/pkgconfig/libsystemd-daemon.pc
 %{_libdir}/pkgconfig/libsystemd-login.pc
