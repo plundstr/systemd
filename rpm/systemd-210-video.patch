@@ -2,7 +2,7 @@ diff --git a/rules/50-udev-default.rules b/rules/50-udev-default.rules
 index f764789..7f38a03 100644
 --- a/rules/50-udev-default.rules
 +++ b/rules/50-udev-default.rules
-@@ -14,13 +14,13 @@ ACTION!="add", GOTO="default_permissions_end"
+@@ -14,13 +14,15 @@ ACTION!="add", GOTO="default_permissions_end"
  
  SUBSYSTEM=="tty", KERNEL=="ptmx", GROUP="tty", MODE="0666"
  SUBSYSTEM=="tty", KERNEL=="tty", GROUP="tty", MODE="0666"
@@ -14,6 +14,8 @@ index f764789..7f38a03 100644
  SUBSYSTEM=="mem", KERNEL=="mem|kmem|port", GROUP="kmem", MODE="0640"
  
 -SUBSYSTEM=="input", KERNEL=="js[0-9]*", MODE="0664"
++SUBSYSTEM=="input", KERNEL=="mouse*|mice|event*", MODE="0660", GROUP="video"
++SUBSYSTEM=="input", KERNEL=="ts[0-9]*|uinput", MODE="0660", GROUP="video"
 +SUBSYSTEM=="input", KERNEL=="js[0-9]*", MODE="0644", GROUP="video"
  
  SUBSYSTEM=="video4linux", GROUP="video"
