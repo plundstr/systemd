@@ -30,12 +30,12 @@ Requires:       util-linux >= 2.21.2
 Source0:        http://www.freedesktop.org/software/systemd/%{name}-%{version}.tar.xz
 Source2:        tests.xml
 Source3:        systemctl-user
-Patch0:         systemd-210-video.patch
-Patch1:         systemd-210-pkgconfigdir.patch
-Patch2:         systemd-187-remove-display-manager.service.patch
-Patch3:         systemd-187-make-readahead-depend-on-sysinit.patch
-Patch4:         systemd-210-install-test-binaries.patch
-Patch5:         systemd-210-no-lto.patch
+Patch0:         systemd-212-video.patch
+Patch1:         systemd-212-pkgconfigdir.patch
+Patch2:         systemd-212-remove-display-manager.service.patch
+Patch3:         systemd-212-make-readahead-depend-on-sysinit.patch
+Patch4:         systemd-212-install-test-binaries.patch
+Patch5:         systemd-212-no-lto.patch
 
 Provides:       udev = %{version}
 Obsoletes:      udev < 184 

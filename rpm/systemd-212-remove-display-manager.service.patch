@@ -1,0 +1,12 @@
+diff --git a/units/graphical.target b/units/graphical.target
+old mode 100644
+new mode 100755
+index a2c4532..6e581c6
+--- a/units/graphical.target
++++ b/units/graphical.target
+@@ -11,5 +11,4 @@ Documentation=man:systemd.special(7)
+ Requires=multi-user.target
+ After=multi-user.target
+ Conflicts=rescue.target
+-Wants=display-manager.service
+ AllowIsolate=yes
